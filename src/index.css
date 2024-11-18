@@ -1,12 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+@layer base {
+  /* Base styles */
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* External link styles */
+  a[target="_blank"] {
+    @apply text-link hover:text-link-hover dark:text-link-dark dark:hover:text-link-dark-hover transition-colors duration-200;
+  }
+
+  /* Add a subtle external link indicator */
+  a[target="_blank"]:not(.no-external-icon)::after {
+    content: "↗";
+    @apply ml-1 text-xs inline-block;
+  }
+
+  /* Complex link hover effect */
+  a:has(> div), a:has(> img) {
+    @apply hover:ring-2 hover:ring-link hover:dark:ring-link-dark transition-all duration-200 rounded-lg;
+  }
+}

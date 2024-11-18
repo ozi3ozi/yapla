@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF8A00"/>
+      <stop offset="50%" style="stop-color:#FF6B00"/>
+      <stop offset="100%" style="stop-color:#FF5F00"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="0.5" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Background shape with subtle rounded corners -->
+  <rect 
+    x="2" 
+    y="2" 
+    width="28" 
+    height="28" 
+    rx="8" 
+    fill="url(#logoGradient)"
+  />
+
+  <!-- Y letter -->
+  <g filter="url(#shadow)">
+    <!-- Left arm -->
+    <path 
+      d="M10 8L16 16"
+      stroke="white"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    
+    <!-- Right arm -->
+    <path 
+      d="M22 8L16 16"
+      stroke="white"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    
+    <!-- Stem -->
+    <path 
+      d="M16 16L16 24"
+      stroke="white"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+    <!-- Decorative dots -->
+    <circle cx="10" cy="8" r="1.5" fill="white" opacity="0.9"/>
+    <circle cx="22" cy="8" r="1.5" fill="white" opacity="0.9"/>
+    <circle cx="16" cy="24" r="1.5" fill="white" opacity="0.9"/>
+    <circle cx="16" cy="16" r="1.5" fill="white" opacity="0.9"/>
+  </g>
+
+  <!-- Subtle glow -->
+  <rect 
+    x="2" 
+    y="2" 
+    width="28" 
+    height="28" 
+    rx="8" 
+    stroke="white"
+    stroke-width="0.5"
+    stroke-opacity="0.2"
+    fill="none"
+  />
+</svg>
