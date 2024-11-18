@@ -30,4 +30,37 @@
   a:has(> div), a:has(> img) {
     @apply hover:ring-2 hover:ring-link hover:dark:ring-link-dark transition-all duration-200 rounded-lg;
   }
+
+  /* Main content SVG background */
+  .main-content {
+    position: relative;
+    background-color: theme('colors.background.paper');
+    background-image: url('../public/assets/background-light.svg');
+    background-repeat: repeat;
+    background-position: center;
+    background-size: auto;
+    isolation: isolate;
+  }
+
+  .dark .main-content {
+    background-color: theme('colors.background.dark');
+    background-image: url('../public/assets/background-dark.svg');
+  }
+
+  /* Ensure header and footer are above the background */
+  header,
+  footer {
+    position: relative;
+    z-index: 10;
+    background: none;
+    background-image: none;
+  }
+
+  /* Side menu should also be above the background */
+  .side-menu {
+    position: relative;
+    z-index: 10;
+    background: none;
+    background-image: none;
+  }
 }

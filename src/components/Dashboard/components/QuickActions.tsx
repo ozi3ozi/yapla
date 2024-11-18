@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useToast } from '../../../context/ToastContext';
 
 const quickActions = [
   {
@@ -41,6 +42,30 @@ const quickActions = [
 ];
 
 export const QuickActions: React.FC = () => {
+  const { showToast } = useToast();
+  const navigate = useNavigate();
+
+  const handleActionClick = (action: typeof quickActions[0], e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Show info toast about the action
+    showToast(`Navigating to ${action.text.toLowerCase()}...`, 'info');
+
+    // Simulate a check for permissions/requirements
+    if (action.text === 'Record Payment' && !hasPaymentPermission()) {
+      showToast('You do not have permission to record payments', 'error');
+      return;
+    }
+
+    // Navigate to the page
+    navigate(action.link);
+  };
+
+  // Mock function to simulate permission check
+  const hasPaymentPermission = () => {
+    return false; // Simulating no permission for demo
+  };
+
   return (
     <div>
       <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
@@ -52,15 +77,16 @@ export const QuickActions: React.FC = () => {
           <Link
             key={index}
             to={action.link}
+            onClick={(e) => handleActionClick(action, e)}
             className="
               flex flex-col items-center
               p-4
-              bg-white dark:bg-gray-700/50
-              hover:bg-gray-50 dark:hover:bg-gray-700
-              active:bg-gray-100 dark:active:bg-gray-600
-              border border-gray-200/50 dark:border-gray-600/50
+              bg-white dark:bg-secondary-900/10
+              hover:bg-primary-150/10 dark:hover:bg-secondary-900/20
+              border border-secondary-200 dark:border-primary-800/30
               rounded-xl
-              transition-colors duration-150
+              overflow-hidden
+              transition-all duration-200
               group
             "
           >
@@ -71,9 +97,10 @@ export const QuickActions: React.FC = () => {
               bg-primary-100 dark:bg-primary-900/20
               text-primary-600 dark:text-primary-400
               mb-3
-              group-hover:bg-primary-200 dark:group-hover:bg-primary-900/30
-              transition-colors duration-150
-            ">
+              group-hover:bg-primary-150/10 dark:group-hover:bg-primary-900/30
+              transition-all duration-200
+            "
+            >
               {action.icon}
             </div>
             <span className="text-sm font-medium text-gray-700 dark:text-gray-200">

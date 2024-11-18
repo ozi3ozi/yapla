@@ -3,11 +3,12 @@ import React from 'react';
 export const Wallet: React.FC = () => {
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6 mb-6">
         <h5 className="text-sm font-semibold text-content-text-secondary-light dark:text-content-text-secondary-dark">
           Available Balance
         </h5>
         <button className="
+          w-full sm:w-auto
           px-4 py-1.5 
           text-sm font-medium
           bg-primary-500 dark:bg-primary-600
@@ -21,12 +22,12 @@ export const Wallet: React.FC = () => {
         </button>
       </div>
       
-      <div className="space-y-4">
-        <h2 className="text-3xl font-bold text-content-text-primary-light dark:text-content-text-primary-dark">
+      <div className="space-y-4 sm:space-y-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-content-text-primary-light dark:text-content-text-primary-dark">
           $24,563.00
         </h2>
         
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div className="space-y-1">
             <div className="flex items-center text-success-light dark:text-success-dark">
               <svg className="w-4 h-4 mr-1.5" viewBox="0 0 24 24" fill="currentColor">
@@ -78,8 +79,8 @@ export const Wallet: React.FC = () => {
         <button className="
           px-4 py-3
           bg-primary-50 dark:bg-primary-900/10
-          hover:bg-primary-100 dark:hover:bg-primary-900/20
-          active:bg-primary-200 dark:active:bg-primary-900/30
+          hover:bg-primary-100 dark:hover:bg-secondary-900/20
+          active:bg-primary-200 dark:active:bg-secondary-900/30
           border border-primary-200 dark:border-primary-800/30
           rounded-lg
           text-content-text-primary-light dark:text-content-text-primary-dark

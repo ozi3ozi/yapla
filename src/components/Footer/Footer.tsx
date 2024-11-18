@@ -1,32 +1,37 @@
 import React from 'react';
-import { Fragment } from 'react';
 import { useSideMenu } from '../../context/SideMenuContext';
+
+interface FooterProps {
+  className?: string;
+}
 
 const languages = [
   { code: 'en', name: 'English' },
   { code: 'fr', name: 'Français' },
 ];
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
   const [currentLanguage, setCurrentLanguage] = React.useState(languages[0].code);
-  const { isExpanded } = useSideMenu();
+  const { isExpanded, } = useSideMenu();
 
   return (
     <footer className={`
       fixed bottom-0 right-0 z-30
-      ${isExpanded ? 'left-64' : 'left-20'}
+      left-0 md:left-6 sm:pl-20
+      ${isExpanded ? 'sm:pl-64' : 'sm:pl-20'}
       bg-layout-footer-light dark:bg-layout-footer-dark
-      transition-all duration-200
+      transition-all duration-300 ease-in-out
       h-12 px-6
       flex items-center justify-between
       shadow-[0_-1px_2px_0_rgba(0,0,0,0.05)]
       border-t border-content-border-light dark:border-content-border-dark
       text-sm text-content-text-secondary-light dark:text-content-text-secondary-dark
+      ${className}
     `}>
       <div className="flex items-center gap-4">
-        <span>Yapla v6.145.3</span>
+        <span className='text-primary-600 dark:text-primary-400 font-bold text-xl'>Yapla</span>
         <span className="h-4 w-px bg-gray-300/50 dark:bg-gray-600/50" />
-        <span> 2024 Yapla. All rights reserved.</span>
+        <span> v6.145.3</span>
       </div>
 
       <div className="flex items-center gap-3">

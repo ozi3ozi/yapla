@@ -23,7 +23,7 @@ module.exports = {
         secondary: {
           50: '#F9F6F3',
           100: '#F1EBE4',
-          200: '#E3DACF', // Matching header/footer light
+          200: '#D2B887', // Matching header/footer light
           300: '#D4C5B4',
           400: '#C5B098',
           500: '#B69B7C',
@@ -38,12 +38,12 @@ module.exports = {
         layout: {
           // Header colors
           header: {
-            light: '#E3DACF',
+            light: '#D2B887',
             dark: '#634C20',
           },
           // Footer colors (same as header for consistency)
           footer: {
-            light: '#E3DACF',
+            light: '#D2B887',
             dark: '#634C20',
           },
           // Side menu colors
@@ -122,6 +122,20 @@ module.exports = {
           light: '#5C7F8A', // Earthy blue
           dark: '#9BB5BC', // Light earthy blue
         },
+      },
+      keyframes: {
+        'slide-in-right': {
+          '0%': { transform: 'translateX(100%)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        'slide-out-right': {
+          '0%': { transform: 'translateX(0)', opacity: '1' },
+          '100%': { transform: 'translateX(100%)', opacity: '0' },
+        },
+      },
+      animation: {
+        'slide-in-right': 'slide-in-right 0.3s ease-out',
+        'slide-out-right': 'slide-out-right 0.3s ease-out',
       },
       spacing: {
         xs: '0.25rem',

@@ -40,7 +40,7 @@ export const News: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="
-              flex gap-6
+              flex flex-col sm:flex-row gap-4 sm:gap-6
               p-4
               bg-white dark:bg-secondary-900/10
               hover:bg-primary-150/10 dark:hover:bg-secondary-900/20
@@ -51,7 +51,11 @@ export const News: React.FC = () => {
               group
             "
           >
-            <div className="shrink-0 w-36 h-24 overflow-hidden rounded-lg">
+            <div className="
+              w-full sm:w-36 h-48 sm:h-24 
+              overflow-hidden rounded-lg
+              shrink-0
+            ">
               <img 
                 src={item.image} 
                 alt={item.title}
@@ -64,12 +68,11 @@ export const News: React.FC = () => {
               />
             </div>
             
-            <div className="flex-grow min-w-0">
+            <div className="flex-grow min-w-0 space-y-2">
               <h3 className="
                 text-base font-semibold 
                 text-content-text-primary-light dark:text-content-text-primary-dark
-                mb-1.5
-                line-clamp-1
+                line-clamp-2
               ">
                 {item.title}
               </h3>
@@ -77,8 +80,7 @@ export const News: React.FC = () => {
               <p className="
                 text-sm 
                 text-content-text-secondary-light dark:text-content-text-secondary-dark
-                mb-3
-                line-clamp-2
+                line-clamp-3
               ">
                 {item.description}
               </p>
@@ -89,6 +91,7 @@ export const News: React.FC = () => {
                 text-primary-600 dark:text-primary-400
                 group-hover:text-primary-700 dark:group-hover:text-primary-300
                 transition-colors duration-200
+                pt-1
               ">
                 {item.linkText}
                 <ArrowRightIcon className="w-4 h-4 ml-1.5 transition-transform duration-200 group-hover:translate-x-0.5" />
