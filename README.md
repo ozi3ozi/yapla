@@ -17,9 +17,7 @@ Bonjour Thibaut, voici l'application web basée sur React.
 
 Regardez l'exécution des tests en action :
 
-https://user-images.githubusercontent.com/YOUR_USER_ID/yapla/assets/cypress_test_e2e_component.webm
-
-<video src="public/assets/cypress_test_e2e_component.webm" controls></video>
+[Voir la Démo des Tests E2E et Composants](public/assets/cypress_test_e2e_component.webm)
 
 ## Pour Commencer
 
