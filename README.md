@@ -15,15 +15,17 @@ Bonjour Thibaut, voici l'application web basée sur React.
 
 ## Vidéo de Démonstration des Tests et de la page
 
-Regardez la vidéo de la page en action :
+Vidéo de la page en action :
 
-[Voir la Démo des Tests E2E et Composants](https://sharing.clickup.com/clip/p/t14108913/1a686c53-cbcf-440d-83e3-e3d230d294f0/screen-recording-2024-11-19-17:21.webm)
-[Télécharger la Démo des Tests E2E et Composants](public/assets/page_demo_desktop_mobile.webm)
+[Voir](https://sharing.clickup.com/clip/p/t14108913/1a686c53-cbcf-440d-83e3-e3d230d294f0/screen-recording-2024-11-19-17:21.webm)
 
-Regardez l'exécution des tests en action :
+[Télécharger](public/assets/page_demo_desktop_mobile.webm)
 
-[Voir la Démo des Tests E2E et Composants](https://sharing.clickup.com/clip/p/t14108913/373a6023-b87a-4596-867d-1c79c1b6e252/screen-recording-2024-11-19-16:33.webm)
-[Télécharger la Démo des Tests E2E et Composants](public/assets/cypress_test_e2e_component.webm)
+Vidéo de l'exécution des tests en action :
+
+[Voir](https://sharing.clickup.com/clip/p/t14108913/373a6023-b87a-4596-867d-1c79c1b6e252/screen-recording-2024-11-19-16:33.webm)
+
+[Télécharger](public/assets/cypress_test_e2e_component.webm)
 
 
 ## Pour Commencer
