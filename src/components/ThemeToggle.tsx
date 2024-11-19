@@ -20,6 +20,7 @@ const ThemeToggle: React.FC = () => {
 
   return (
     <button
+      data-cy="theme-toggle"
       onClick={() => setIsDark(!isDark)}
       className="
         inline-flex items-center justify-center
@@ -41,7 +42,15 @@ const ThemeToggle: React.FC = () => {
       aria-label="Toggle theme"
     >
       {isDark ? (
-        <svg className="w-5 h-5 group-hover:fill-black group-hover:stroke-black" fill="none" viewBox="0 0 24 24" stroke="white">
+        <svg 
+          data-cy="theme-toggle-icon"
+          className="w-5 h-5 group-hover:fill-black group-hover:stroke-black" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="white"
+          role="img"
+          aria-label="Sun icon for light theme"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -50,7 +59,15 @@ const ThemeToggle: React.FC = () => {
           />
         </svg>
       ) : (
-        <svg className="w-5 h-5 group-hover:fill-black group-hover:stroke-black" fill="white" viewBox="0 0 24 24" stroke="white" strokeWidth={1}>
+        <svg
+          data-cy="theme-toggle-icon"
+          className="w-5 h-5 group-hover:fill-black group-hover:stroke-black"
+          fill="whitesmoke"
+          viewBox="0 0 24 24"
+          stroke="whitesmoke"
+          role="img"
+          aria-label="Moon icon for dark theme"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"

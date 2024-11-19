@@ -28,7 +28,7 @@ const ContentSection: React.FC<{
 
 export const Dashboard: React.FC = () => {
   const { showBanner } = useBanner();
-  const { isExpanded, isMobileMenuOpen } = useSideMenu();
+  const { isMobileMenuOpen } = useSideMenu();
 
   useEffect(() => {
     // Show example banners
@@ -52,7 +52,7 @@ export const Dashboard: React.FC = () => {
       'Start Tour',
       () => console.log('Starting tour...')
     );
-  }, []); // Run once on mount
+  }); // Run once on mount
 
   return (
     <main className={`

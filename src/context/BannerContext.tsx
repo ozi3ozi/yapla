@@ -89,7 +89,7 @@ export const BannerProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [banners, dispatch] = useReducer(bannerReducer, []);
   const [isExpanded, setIsExpanded] = useState(false);
-  const { isMobileMenuOpen, isExpanded: sideMenuExpanded } = useSideMenu();
+  const { isMobileMenuOpen } = useSideMenu();
 
   // Auto-collapse when banner count exceeds threshold
   useEffect(() => {

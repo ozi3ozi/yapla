@@ -6,7 +6,7 @@ import { Dashboard as DashboardContent } from '../components/Dashboard/Dashboard
 import { SideMenuProvider, useSideMenu } from '../context/SideMenuContext';
 
 const DashboardPage: React.FC = () => {
-  const { isExpanded, isMobileMenuOpen } = useSideMenu();
+  const { isMobileMenuOpen } = useSideMenu();
 
   return (
     <>

@@ -24,14 +24,37 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-//
-// declare global {
-//   namespace Cypress {
-//     interface Chainable {
-//       login(email: string, password: string): Chainable<void>
-//       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-//     }
-//   }
-// }
+
+/**
+ * Set theme command
+ * @param theme - 'light' | 'dark'
+ */
+Cypress.Commands.add('setTheme', (theme: 'light' | 'dark') => {
+  cy.window().then((win) => {
+    win.localStorage.setItem('theme', theme)
+    if (theme === 'dark') {
+      cy.get('html').invoke('addClass', 'dark')
+    } else {
+      cy.get('html').invoke('removeClass', 'dark')
+    }
+  })
+})
+
+/**
+ * Reset theme to light mode
+ */
+Cypress.Commands.add('resetTheme', () => {
+  cy.window().then((win) => {
+    win.localStorage.setItem('theme', 'light')
+    cy.get('html').invoke('removeClass', 'dark')
+  })
+})
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      setTheme(theme: 'light' | 'dark'): Chainable<void>
+      resetTheme(): Chainable<void>
+    }
+  }
+}

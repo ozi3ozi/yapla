@@ -16,15 +16,28 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
-// Ensure global app styles are loaded:
-import '../../src/index.css';
-
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+// Import Tailwind CSS and global styles
+import '../../src/index.css'
 
 import { mount } from 'cypress/react18'
 
-Cypress.Commands.add('mount', mount)
+// Add any global context providers your components need
+const customMount = (component: React.ReactNode, options = {}) => {
+  // Wrap your component with any necessary providers (Theme, Router, etc.)
+  const wrapped = component
+  // Example with providers:
+  // const wrapped = (
+  //   <ThemeProvider>
+  //     <RouterProvider>
+  //       {component}
+  //     </RouterProvider>
+  //   </ThemeProvider>
+  // )
+  
+  return mount(wrapped, options)
+}
+
+Cypress.Commands.add('mount', customMount)
 
 // Example use:
 // cy.mount(<MyComponent />)

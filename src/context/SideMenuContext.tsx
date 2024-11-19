@@ -25,6 +25,21 @@ export const SideMenuProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Handle custom event for testing
+  useEffect(() => {
+    const handleSideMenuEvent = (e: CustomEvent) => {
+      setIsExpanded(e.detail);
+    };
+
+    document.body.addEventListener('sidemenu-expanded', handleSideMenuEvent as EventListener);
+    return () => document.body.removeEventListener('sidemenu-expanded', handleSideMenuEvent as EventListener);
+  }, []);
+
+  // Expose state to window for testing
+  if (typeof window !== 'undefined') {
+    window.sideMenuState = { setIsExpanded };
+  }
+
   return (
     <SideMenuContext.Provider value={{ 
       isExpanded, 
@@ -44,3 +59,12 @@ export const useSideMenu = () => {
   }
   return context;
 };
+
+// Add type declaration for window
+declare global {
+  interface Window {
+    sideMenuState: {
+      setIsExpanded: (value: boolean) => void;
+    };
+  }
+}

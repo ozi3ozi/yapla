@@ -2,7 +2,7 @@ import React, { createContext, useContext, useCallback, useState } from 'react';
 import { Toast, ToastType } from '../components/Toast/Toast';
 import { nanoid } from 'nanoid';
 
-interface Toast {
+interface iToast {
   id: string;
   message: string;
   type: ToastType;
@@ -23,7 +23,7 @@ export const useToast = () => {
 };
 
 export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [toasts, setToasts] = useState<Toast[]>([]);
+  const [toasts, setToasts] = useState<iToast[]>([]);
 
   const removeToast = useCallback((id: string) => {
     setToasts(prev => prev.filter(toast => toast.id !== id));

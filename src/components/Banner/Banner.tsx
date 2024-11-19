@@ -57,7 +57,7 @@ const bannerConfig: Record<BannerType, BannerConfig> = {
       button: 'bg-red-100 dark:bg-red-800 hover:bg-red-200 dark:hover:bg-red-700',
     },
     icon: ExclamationCircleIcon,
-    dismissable: false,
+    dismissable: true,
   },
 };
 
@@ -74,13 +74,16 @@ export const Banner: React.FC<BannerProps> = ({
 
   return (
     <div
+      data-cy="banner-wrapper"
       className={`
         w-full flex justify-center
       `}
     >
       <div
+        data-cy="banner"
         className={`
-          w-2/3
+          w-11/12
+          sm:w-2/4
           ${styles.background}
           ${styles.border}
           rounded-lg
@@ -89,17 +92,24 @@ export const Banner: React.FC<BannerProps> = ({
         `}
         role="alert"
       >
-        <div className="py-3 px-4 sm:px-6">
+        <div className="py-3 px-4 sm:px-6 ">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center flex-1 min-w-0">
-              <Icon className={`w-5 h-5 ${styles.text} shrink-0`} />
-              <p className={`ml-3 text-sm font-medium ${styles.text} truncate`}>
+              <Icon 
+                data-cy="banner-icon"
+                className={`w-5 h-5 ${styles.text} shrink-0`} 
+              />
+              <p 
+                data-cy="banner-message"
+                className={`ml-3 text-sm font-medium ${styles.text} truncate`}
+              >
                 {message}
               </p>
             </div>
             <div className="flex-shrink-0 flex items-center gap-4">
               {actionText && onAction && (
                 <button
+                  data-cy="banner-action"
                   onClick={onAction}
                   className={`
                     px-4 py-1.5
@@ -109,6 +119,7 @@ export const Banner: React.FC<BannerProps> = ({
                     ${styles.button}
                     transition-colors duration-200
                   `}
+                  aria-label={actionText}
                 >
                   {actionText}
                 </button>
@@ -117,6 +128,7 @@ export const Banner: React.FC<BannerProps> = ({
               <div className="w-7 h-7 flex items-center justify-center">
                 {onDismiss && (
                   <button
+                    data-cy="banner-dismiss"
                     onClick={onDismiss}
                     className={`
                       p-1
@@ -125,6 +137,7 @@ export const Banner: React.FC<BannerProps> = ({
                       hover:bg-black/5 dark:hover:bg-white/5
                       transition-colors duration-200
                     `}
+                    aria-label="Dismiss"
                   >
                     <XMarkIcon className="w-5 h-5" />
                   </button>

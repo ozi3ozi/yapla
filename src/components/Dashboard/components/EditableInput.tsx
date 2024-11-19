@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { PencilIcon, CheckIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
-interface EditableInputProps {
+export interface EditableInputProps {
   value: string;
   onChange: (value: string) => boolean; // Return true if validation passes, false otherwise
   type?: 'text' | 'email';
@@ -32,6 +32,10 @@ export const EditableInput: React.FC<EditableInputProps> = ({
   }, [value]);
 
   const handleSubmit = () => {
+    if (!inputValue.trim()) {
+      handleCancel();
+      return;
+    }
     const success = onChange(inputValue);
     if (success) {
       setIsEditing(false);
@@ -45,65 +49,69 @@ export const EditableInput: React.FC<EditableInputProps> = ({
     setIsEditing(false);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+    } else if (e.key === 'Escape') {
+      handleCancel();
+    }
+  };
+
   return (
-    <div className="group border border-primary-600 md:border-none dark:border-primary-400 rounded-lg px-2">
+    <div 
+      data-cy="editable-input-wrapper"
+      className="group border border-primary-600 md:border-none dark:border-primary-400 rounded-lg px-2"
+    >
       <div className={`
         flex items-center gap-3 p-2 -ml-2 rounded-lg
-        transition-all duration-200
-        ${isEditing 
-          ? 'bg-secondary-50 dark:bg-secondary-900/10 ring-2 ring-primary-500/20 dark:ring-primary-400/20' 
-          : 'hover:bg-primary-150/10 dark:hover:bg-secondary-900/10'
-        }
+        ${isEditing ? 'bg-white dark:bg-gray-800' : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'}
+        ${className}
       `}>
         <input
+          data-cy="editable-input"
           ref={inputRef}
           type={type}
           value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              e.preventDefault();
-              handleSubmit();
-            } else if (e.key === 'Escape') {
-              e.preventDefault();
-              handleCancel();
-            }
-          }}
-          className={`
-            bg-transparent
-            border-none
-            focus:outline-none focus:ring-0
-            w-full
-            transition-colors duration-200
-            ${isEditing ? 'cursor-text' : 'cursor-pointer'}
-            ${className}
-          `}
           readOnly={!isEditing}
+          onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={handleKeyDown}
           onClick={() => !isEditing && setIsEditing(true)}
+          className={`
+            flex-1 p-0 border-none focus:ring-0
+            ${isEditing 
+              ? 'bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 rounded' 
+              : 'bg-transparent cursor-pointer'}
+          `}
+          aria-label={isEditing ? "Edit value" : "Click to edit value"}
         />
-        <div className="flex items-center gap-1">
-          {isEditing ? (
-            <>
-              <button
-                onClick={handleSubmit}
-                className="p-1 rounded-full text-primary-600 dark:text-primary-400 hover:bg-primary-500/10"
-              >
-                <CheckIcon className={`w-${iconSize} h-${iconSize}`} />
-              </button>
-              <button
-                onClick={handleCancel}
-                className="p-1 rounded-full text-gray-500 hover:bg-gray-500/10"
-              >
-                <XMarkIcon className={`w-${iconSize} h-${iconSize}`} />
-              </button>
-            </>
-          ) : (
-            <PencilIcon
-              className={`w-${iconSize} h-${iconSize} text-gray-400 group-hover:opacity-100`}
-              onClick={() => setIsEditing(true)}
-            />
-          )}
-        </div>
+        {isEditing && (
+          <div className="flex items-center gap-2">
+            <button
+              data-cy="editable-input-submit"
+              onClick={handleSubmit}
+              className="p-1 text-green-600 hover:text-green-700 dark:text-green-500 dark:hover:text-green-400"
+              aria-label="Submit changes"
+            >
+              <CheckIcon className={`w-${iconSize} h-${iconSize}`} />
+            </button>
+            <button
+              data-cy="editable-input-cancel"
+              onClick={handleCancel}
+              className="p-1 text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-400"
+              aria-label="Cancel changes"
+            >
+              <XMarkIcon className={`w-${iconSize} h-${iconSize}`} />
+            </button>
+          </div>
+        )}
+        {!isEditing && (
+          <PencilIcon
+            data-cy="editable-input-edit"
+            className={`w-${iconSize} h-${iconSize} text-gray-400 group-hover:opacity-100`}
+            onClick={() => setIsEditing(true)}
+            aria-label="Edit value"
+          />
+        )}
       </div>
     </div>
   );

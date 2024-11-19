@@ -8,8 +8,9 @@
       "esnext"
     ],
     "types": [
-      "cypress", 
-      "node"
+      "cypress",
+      "node",
+      "cypress-react-selector"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -27,7 +28,9 @@
   },
   "include": [
     "src",
+    "cypress",
     "cypress.d.ts",
     "**/*.ts",
+    "**/*.tsx"
   ]
 }

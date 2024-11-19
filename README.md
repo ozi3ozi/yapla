@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# Projet Yapla
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## À Propos du Projet
 
-## Available Scripts
+Bonjour Thibaut, voici l'application web basée sur React.
 
-In the project directory, you can run:
+## Construit Avec
 
-### `npm start`
+- **React** - Bibliothèque frontend
+- **TypeScript** - Pour un code typé sécurisé
+- **Tailwind CSS** - Pour le style
+- **Cypress** - Pour les tests E2E et composants
+- **React Context** - Pour la gestion d'état
+- **PostCSS** - Pour le traitement CSS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Vidéo de Démonstration des Tests
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Regardez l'exécution des tests en action :
 
-### `npm test`
+[Voir la Démo des Tests E2E et Composants](public/assets/cypress_test_e2e_component.webm)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Pour Commencer
 
-### `npm run build`
+### Prérequis
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14 ou supérieur)
+- npm
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Cloner le dépôt
+```bash
+git clone
+```
 
-### `npm run eject`
+2. Installer les dépendances
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Démarrer le serveur de développement
+```bash
+npm start
+```
+L'application sera disponible sur [http://localhost:3000](http://localhost:3000)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Exécution des Tests
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Tests E2E
+```bash
+# Ouvrir Cypress Test Runner
+npx cypress open
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Exécuter les tests en mode headless
+npx cypress run
+```
 
-## Learn More
+### Tests des Composants
+```bash
+# Ouvrir Cypress Test Runner
+npx cypress open
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Exécuter les tests en mode headless
+npx cypress run --component
+```
