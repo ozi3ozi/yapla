@@ -52,7 +52,7 @@ export const Dashboard: React.FC = () => {
       'Start Tour',
       () => console.log('Starting tour...')
     );
-  }); // Run once on mount
+  }, []); // Run once on mount
 
   return (
     <main className={`

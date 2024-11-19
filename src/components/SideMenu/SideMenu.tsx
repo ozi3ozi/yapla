@@ -30,13 +30,14 @@ export const SideMenu: React.FC<{ activeRoute: string }> = ({ activeRoute }) => 
     <>
       <div 
         data-cy="mobile-overlay"
-        className="
+        className={`
           fixed inset-0 z-40
           bg-black/30 
           backdrop-blur-sm
           sm:hidden
           transition-opacity duration-300 ease-in-out
-        "
+          ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
+        `}
         onClick={() => setMobileMenuOpen(false)}
       />
 
