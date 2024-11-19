@@ -21,6 +21,7 @@ Regardez la vidéo de la page en action :
 [Télécharger la Démo des Tests E2E et Composants](public/assets/page_demo_desktop_mobile.webm)
 
 Regardez l'exécution des tests en action :
+
 [Voir la Démo des Tests E2E et Composants](https://sharing.clickup.com/clip/p/t14108913/373a6023-b87a-4596-867d-1c79c1b6e252/screen-recording-2024-11-19-16:33.webm)
 [Télécharger la Démo des Tests E2E et Composants](public/assets/cypress_test_e2e_component.webm)
 
