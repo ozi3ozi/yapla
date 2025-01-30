@@ -11,7 +11,6 @@ Bonjour Thibaut, voici l'application web basée sur React.
 - **Tailwind CSS** - Pour le style
 - **Cypress** - Pour les tests E2E et composants
 - **React Context** - Pour la gestion d'état
-- **PostCSS** - Pour le traitement CSS
 
 ## Vidéo de Démonstration des Tests et de la page
 
@@ -39,7 +38,7 @@ Vidéo de l'exécution des tests en action :
 
 1. Cloner le dépôt
 ```bash
-git clone [https://github.com/ozi3ozi/yapla.git]
+git clone https://github.com/ozi3ozi/yapla.git
 ```
 
 2. Installer les dépendances
